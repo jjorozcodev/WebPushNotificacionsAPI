@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification API - Demo</title>
+</head>
+<body>
+    <button id="auth">Auth</button>
+    <button id="validate">Validate</button>
+    <button id="show">Show</button>
+    <button id="close">Close</button>
+
+    <script>
+        var btnAuth = document.querySelector("#auth");
+        var btnVal = document.querySelector("#validate");
+        var btnShow = document.querySelector("#show");
+        var btnClose = document.querySelector("#close");
+
+        var notif;
+
+        btnAuth.addEventListener("click", function(){
+            Notification.requestPermission();
+        });
+        btnVal.addEventListener("click", function(){
+            alert(Notification.permission);
+        });
+        btnShow.addEventListener("click", function(){
+                notif = new Notification("Hi! =)");
+        });
+        btnClose.addEventListener("click", function(){
+            notif.close();
+        });
+    </script>
+</body>
+</html>
