@@ -26,7 +26,16 @@
             alert(Notification.permission);
         });
         btnShow.addEventListener("click", function(){
-                notif = new Notification("Hi! =)");
+                notif = new Notification("Hi! =)",
+                {
+                    body: "How is it going?",
+                    icon: "bell.png",
+                    image: "note.png"
+                });
+
+                notif.onclick = function(){
+                    alert("You clicked it!");
+                };
         });
         btnClose.addEventListener("click", function(){
             notif.close();
